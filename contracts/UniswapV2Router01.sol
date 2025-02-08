@@ -17,11 +17,14 @@ contract UniswapV2Router01 is IUniswapV2Router01 {
         _;
     }
 
-    constructor(address _factory, address _WETH) public {
-        factory = _factory;
-        WETH = _WETH;
-    }
-
+    // **** ADD LIQUIDITY ****
+    function _addLiquidity(
+        address tokenA,
+        address tokenB,
+        uint amountADesired,
+        uint amountBDesired,
+        uint amountAMin,
+        uint amountBMin
     receive() external payable {
         assert(msg.sender == WETH); // only accept ETH via fallback from the WETH contract
     }
